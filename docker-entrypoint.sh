@@ -25,8 +25,9 @@ else
 fi
 
 if [ -z "$BATCH_CRON" ]; then
-  echo 'Using default cron schedule'
+  echo "Using default cron schedule $BATCH_CRON"
 else
+    echo "Using cron $BATCH_CRON"
   JAVA_OPTS="$JAVA_OPTS -Dbatch.cron=$BATCH_CRON"
 fi
 
