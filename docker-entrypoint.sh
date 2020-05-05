@@ -24,13 +24,6 @@ else
   JAVA_OPTS="$JAVA_OPTS -Dspring.datasource.password=$DATABASE_PASSWORD"
 fi
 
-if [ -z "$BATCH_CRON" ]; then
-  echo "Using default cron schedule $BATCH_CRON"
-else
-    echo "Using cron $BATCH_CRON"
-  JAVA_OPTS="$JAVA_OPTS -Dbatch.cron=$BATCH_CRON"
-fi
-
 exec java $JAVA_OPTS \
 -jar \
 /app.jar
