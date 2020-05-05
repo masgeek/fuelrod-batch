@@ -1,0 +1,9 @@
+version: "3"
+services:
+  fuelrod-batch:
+    image: tsobu/fuelrod-batch:latest
+    hostname: fuelrod
+    container_name: fuelrod-batch
+    restart: always
+    ports:
+      - 9001:9001
