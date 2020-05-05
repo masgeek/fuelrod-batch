@@ -41,7 +41,7 @@ class MessageQueueProcessor(
             )
             messageRequest.queue = false
 
-            //val resp = messagingService.sendTextMessage(messageRequest = messageRequest, apiUser = apiUser, apiUserServices = apiUserServices)
+            val resp = messagingService.sendTextMessage(messageRequest = messageRequest, apiUser = apiUser, apiUserServices = apiUserServices)
 
             val saved = messagingService.updateQueueItem(item)
             val savedResponse = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(saved)
