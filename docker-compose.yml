@@ -4,8 +4,6 @@ services:
     container_name: fuelrod-batch
     image: tsobu/fuelrod-batch:${BATCH_VERSION}
     restart: always
-    depends_on:
-      - db
     ports:
       - 9001:9001
     volumes:
