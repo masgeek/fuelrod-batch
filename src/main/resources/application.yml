@@ -1,2 +1,9 @@
 server:
   port: 9001
+
+spring:
+  batch:
+    job:
+      names: "processMessage"
+      enabled: false
+    initialize-schema: ALWAYS

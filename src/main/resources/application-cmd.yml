@@ -1,0 +1,30 @@
+---
+debug: false
+trace: false
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: info
+spring:
+  datasource:
+    #driverClassName: org.mariadb.jdbc.Driver
+    #driverClassName: com.mysql.jdbc.Driver
+    url: "jdbc:mysql://127.0.0.1:3306/fuelrod"
+    username: root
+    password: root
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    open-in-view: false
+    show-sql: false
+    properties:
+      dialect: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      ddl-auto: validate
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyHbmImpl
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+  http:
+    log-request-details: true
+  profiles:
+    active: cmd

@@ -1,5 +1,6 @@
 package com.tsobu.fuelrodbatch.processor
 
+import com.fasterxml.jackson.databind.ObjectMapper
 import com.tsobu.fuelrodbatch.entities.MessageQueue
 import com.tsobu.fuelrodbatch.services.AtMessagingService
 import org.slf4j.LoggerFactory
@@ -9,6 +10,7 @@ class MessageQueueProcessor(
         private val applicationSubmission: AtMessagingService
 ) : ItemProcessor<MessageQueue, MessageQueue> {
     private val logger = LoggerFactory.getLogger(MessageQueueProcessor::class.java)
+    private val mapper = ObjectMapper()
 
     /**
      * Process the provided item, returning a potentially modified or new item for continued
@@ -22,7 +24,11 @@ class MessageQueueProcessor(
      * @throws Exception thrown if exception occurs during processing.
      */
     override fun process(item: MessageQueue): MessageQueue? {
-        TODO("Not yet implemented")
+        //val savedResponse = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(item)
+
+        logger.info(item.id.toString())
+
+        return item
     }
 
 
