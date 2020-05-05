@@ -22,10 +22,9 @@ class JobRunner(
         private val jobLauncher: JobLauncher
 ) {
 
-//    @Scheduled(fixedRate = 5000, initialDelay = 10000)
-@Scheduled(cron = "\${batch.cron}")
+    //    @Scheduled(fixedRate = 5000, initialDelay = 10000)
+    @Scheduled(cron = "\${batch.cron}")
     fun findAndRunJob() {
-
 
         try {
             val jobParameters = JobParametersBuilder()
