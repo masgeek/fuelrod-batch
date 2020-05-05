@@ -1,2 +1,20 @@
 server:
   port: 9001
+
+spring:
+  application:
+    name: fuelrod
+  profiles:
+    active: dev
+  batch:
+    job:
+      #      names: "processMessage"
+      enabled: false
+    initialize-schema: ALWAYS
+  main:
+    web-application-type: NONE
+
+
+#second, minute, hour, day of month, month, day(s) of week
+batch:
+  cron: "0 */10 * * * *"

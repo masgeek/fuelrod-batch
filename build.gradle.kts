@@ -39,9 +39,13 @@ dependencies {
 
 	implementation("com.googlecode.libphonenumber:libphonenumber:8.10.13")
 
+	implementation("org.quartz-scheduler:quartz:2.3.1")
+	implementation("com.github.rozidan:modelmapper-spring-boot-starter:1.0.0")
+
 	compileOnly("org.projectlombok:lombok")
 
 	runtimeOnly("mysql:mysql-connector-java")
+	runtimeOnly("com.h2database:h2")
 
 	annotationProcessor("org.projectlombok:lombok")
 
