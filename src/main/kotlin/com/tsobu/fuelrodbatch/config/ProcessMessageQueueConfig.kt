@@ -3,6 +3,8 @@ package com.tsobu.fuelrodbatch.config
 import com.tsobu.fuelrodbatch.entities.MessageQueue
 import com.tsobu.fuelrodbatch.processor.MessageQueueProcessor
 import com.tsobu.fuelrodbatch.repositories.MessageQueueRepository
+import com.tsobu.fuelrodbatch.services.ApiUserService
+import com.tsobu.fuelrodbatch.services.AtMessagingService
 import org.springframework.batch.core.Job
 import org.springframework.batch.core.Step
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory
@@ -23,7 +25,7 @@ class ProcessMessageQueueConfig {
             createAccountStep: Step,
             jobBuilderFactory: JobBuilderFactory
     ): Job {
-        return jobBuilderFactory.get("createAccount")
+        return jobBuilderFactory.get("processMessage")
                 .incrementer(RunIdIncrementer())
                 .start(createAccountStep)
                 .build()
@@ -31,7 +33,7 @@ class ProcessMessageQueueConfig {
 
     @Bean
     fun processMessageStep(
-            processor: MessageQueueProcessor,
+            messageQueueProcessor: MessageQueueProcessor,
             messageQueueRepository: MessageQueueRepository,
             stepBuilderFactory: StepBuilderFactory
     ): Step {
@@ -43,11 +45,19 @@ class ProcessMessageQueueConfig {
         return stepBuilderFactory.get("processMessageStep")
                 .chunk<MessageQueue, MessageQueue>(10)
                 .reader(reader)
-                .processor(processor)
+                .processor(messageQueueProcessor)
                 .faultTolerant()
                 //.skipLimit(10)
                 //.skip(ServiceIntegrationException::class.java)
                 .writer { }
                 .build()
+    }
+
+    @Bean
+    fun messageQueueProcessor(
+            atMessagingService: AtMessagingService,
+            userService: ApiUserService
+    ): MessageQueueProcessor {
+        return MessageQueueProcessor(atMessagingService, userService)
     }
 }
