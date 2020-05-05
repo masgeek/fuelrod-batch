@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ -z "$DEBUG" ]; then
-  echo 'Debugging is disable by default'
+  echo 'Debugging is disabled by default'
 else
   JAVA_OPTS="$JAVA_OPTS -Ddebug=$DEBUG"
 fi
