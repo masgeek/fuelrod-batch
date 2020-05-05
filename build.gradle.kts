@@ -15,6 +15,18 @@ group = "com.tsobu"
 version = "1.0.0"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
+tasks.withType<Test> {
+	useJUnitPlatform()
+}
+
+tasks.withType<KotlinCompile> {
+	kotlinOptions {
+		freeCompilerArgs = listOf("-Xjsr305=strict")
+		jvmTarget = "1.8"
+	}
+}
+
+
 repositories {
 	mavenCentral()
 	maven {
@@ -53,15 +65,4 @@ dependencies {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
 	}
 	testImplementation("org.springframework.batch:spring-batch-test")
-}
-
-tasks.withType<Test> {
-	useJUnitPlatform()
-}
-
-tasks.withType<KotlinCompile> {
-	kotlinOptions {
-		freeCompilerArgs = listOf("-Xjsr305=strict")
-		jvmTarget = "1.8"
-	}
 }
