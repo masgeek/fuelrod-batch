@@ -4,6 +4,13 @@ server:
 spring:
   batch:
     job:
-      names: "processMessage"
+      #      names: "processMessage"
       enabled: false
     initialize-schema: ALWAYS
+  main:
+    web-application-type: NONE
+
+
+#second, minute, hour, day of month, month, day(s) of week
+batch:
+  cron: "0 */1 * * * *"

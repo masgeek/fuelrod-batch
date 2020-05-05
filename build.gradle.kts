@@ -39,6 +39,8 @@ dependencies {
 
 	implementation("com.googlecode.libphonenumber:libphonenumber:8.10.13")
 
+	implementation("org.quartz-scheduler:quartz:2.3.1")
+
 	compileOnly("org.projectlombok:lombok")
 
 	runtimeOnly("mysql:mysql-connector-java")
