@@ -40,6 +40,7 @@ class MessageQueueProcessor(
                     text = item.message!!
             )
             messageRequest.queue = false
+
             //val resp = messagingService.sendTextMessage(messageRequest = messageRequest, apiUser = apiUser, apiUserServices = apiUserServices)
 
             val saved = messagingService.updateQueueItem(item)

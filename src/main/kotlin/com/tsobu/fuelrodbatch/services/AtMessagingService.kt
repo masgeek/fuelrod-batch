@@ -164,7 +164,6 @@ constructor(val messageQueueRepository: MessageQueueRepository,
     }
 
     fun updateQueueItem(item: MessageQueue): MessageQueue {
-//        val toSave = messageQueueRepository.findById(item.id!!).get()
         item.messageSent = true
         return messageQueueRepository.saveAndFlush(item)
     }

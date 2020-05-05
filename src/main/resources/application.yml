@@ -2,6 +2,10 @@ server:
   port: 9001
 
 spring:
+  application:
+    name: fuelrod
+  profiles:
+    active: dev
   batch:
     job:
       #      names: "processMessage"
