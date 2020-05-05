@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-docker build -f Dockerfile -t tsobu/fuelrod-batch .
+./gradlew build && docker build -f Dockerfile -t tsobu/fuelrod-batch .
