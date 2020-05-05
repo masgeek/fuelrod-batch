@@ -13,4 +13,4 @@ spring:
 
 #second, minute, hour, day of month, month, day(s) of week
 batch:
-  cron: "0 */1 * * * *"
+  cron: "*/5 * * * * *"

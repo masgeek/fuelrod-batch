@@ -9,6 +9,7 @@ import com.google.i18n.phonenumbers.PhoneNumberUtil
 import com.google.i18n.phonenumbers.Phonenumber
 import com.tsobu.fuelrodbatch.entities.ApiUser
 import com.tsobu.fuelrodbatch.entities.ApiUserServices
+import com.tsobu.fuelrodbatch.entities.MessageQueue
 import com.tsobu.fuelrodbatch.entities.SmsOutbox
 import com.tsobu.fuelrodbatch.repositories.ApiUsersRepository
 import com.tsobu.fuelrodbatch.repositories.MessageQueueRepository
@@ -160,5 +161,11 @@ constructor(val messageQueueRepository: MessageQueueRepository,
 
         return phoneUtil.isValidNumber(number)
 
+    }
+
+    fun updateQueueItem(item: MessageQueue): MessageQueue {
+//        val toSave = messageQueueRepository.findById(item.id!!).get()
+        item.messageSent = true
+        return messageQueueRepository.saveAndFlush(item)
     }
 }

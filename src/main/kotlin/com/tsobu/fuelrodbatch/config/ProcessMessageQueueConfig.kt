@@ -3,6 +3,7 @@ package com.tsobu.fuelrodbatch.config
 import com.tsobu.fuelrodbatch.entities.MessageQueue
 import com.tsobu.fuelrodbatch.processor.MessageQueueProcessor
 import com.tsobu.fuelrodbatch.repositories.MessageQueueRepository
+import com.tsobu.fuelrodbatch.services.ApiUserService
 import com.tsobu.fuelrodbatch.services.AtMessagingService
 import org.springframework.batch.core.Job
 import org.springframework.batch.core.Step
@@ -42,7 +43,7 @@ class ProcessMessageQueueConfig {
         reader.setMethodName("findAllByMessageSentIsFalse")
 
         return stepBuilderFactory.get("processMessageStep")
-                .chunk<MessageQueue, MessageQueue>(500)
+                .chunk<MessageQueue, MessageQueue>(10)
                 .reader(reader)
                 .processor(messageQueueProcessor)
                 .faultTolerant()
@@ -54,8 +55,9 @@ class ProcessMessageQueueConfig {
 
     @Bean
     fun messageQueueProcessor(
-            atMessagingService: AtMessagingService
+            atMessagingService: AtMessagingService,
+            userService: ApiUserService
     ): MessageQueueProcessor {
-        return MessageQueueProcessor(atMessagingService)
+        return MessageQueueProcessor(atMessagingService, userService)
     }
 }
