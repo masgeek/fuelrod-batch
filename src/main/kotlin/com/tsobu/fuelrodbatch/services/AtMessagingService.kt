@@ -122,7 +122,7 @@ constructor(val messageQueueRepository: MessageQueueRepository,
             val saved = smsOutboxRepository.save(smsOutbox)
 
 
-            val responseString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(response)
+            val responseString = mapper.writer().writeValueAsString(response)
             val savedResponse = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(saved)
 
             logger.info(responseString)
@@ -130,6 +130,7 @@ constructor(val messageQueueRepository: MessageQueueRepository,
 
         } catch (ex: Exception) {
             ex.printStackTrace()
+            logger.error(ex.message)
         }
     }
 

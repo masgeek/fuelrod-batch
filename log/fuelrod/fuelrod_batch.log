@@ -1,8 +1,8 @@
 For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-Starting FuelrodBatchApplicationKt on STYX with PID 39572 (H:\development\java\fuelrod-batch\build\classes\kotlin\main started by masgeek in H:\development\java\fuelrod-batch)
+Starting FuelrodBatchApplicationKt on STYX with PID 26160 (H:\development\java\fuelrod-batch\build\classes\kotlin\main started by masgeek in H:\development\java\fuelrod-batch)
 The following profiles are active: uat
 Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-Finished Spring Data repository scanning in 85ms. Found 4 JPA repository interfaces.
+Finished Spring Data repository scanning in 116ms. Found 4 JPA repository interfaces.
 HHH000204: Processing PersistenceUnitInfo [name: default]
 HHH000412: Hibernate ORM core version 5.4.12.Final
 HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
