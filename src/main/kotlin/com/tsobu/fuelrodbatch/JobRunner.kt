@@ -23,7 +23,7 @@ class JobRunner(
 ) {
 
 //     @Scheduled(fixedRate = 5000, initialDelay = 2000)
-    @Scheduled(cron = "* */2 * * * *")
+    @Scheduled(cron = "* */5 * * * *")
     fun findAndRunJob() {
 
         try {
