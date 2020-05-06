@@ -1,5 +1,7 @@
 package com.tsobu.fuelrodbatch
 
+import com.tsobu.fuelrodbatch.processor.MessageQueueProcessor
+import org.slf4j.LoggerFactory
 import org.springframework.batch.core.*
 import org.springframework.batch.core.explore.JobExplorer
 import org.springframework.batch.core.launch.JobLauncher
@@ -21,11 +23,11 @@ class JobRunner(
         @Autowired
         private val jobLauncher: JobLauncher
 ) {
+    private val logger = LoggerFactory.getLogger(JobRunner::class.java)
 
-//    @Scheduled(fixedRate = 5000, initialDelay = 10000)
-@Scheduled(cron = "\${batch.cron}")
+    //     @Scheduled(fixedRate = 5000, initialDelay = 2000)
+    @Scheduled(cron = "* */5 * * * *")
     fun findAndRunJob() {
-
 
         try {
             val jobParameters = JobParametersBuilder()
@@ -34,7 +36,8 @@ class JobRunner(
 
             val execution = jobLauncher.run(job, jobParameters)
 
-            println("Exit status : " + execution.status);
+            logger.info("Exit status : " + execution.status)
+
         } catch (e: JobInstanceAlreadyCompleteException) {
             e.printStackTrace()
         } catch (e: JobExecutionAlreadyRunningException) {

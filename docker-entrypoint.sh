@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ -z "$DEBUG" ]; then
-  echo 'Debugging is disable by default'
+  echo 'Debugging is disabled by default'
 else
   JAVA_OPTS="$JAVA_OPTS -Ddebug=$DEBUG"
 fi
@@ -22,12 +22,6 @@ if [ -z "$DATABASE_PASSWORD" ]; then
   echo 'Default database password used'
 else
   JAVA_OPTS="$JAVA_OPTS -Dspring.datasource.password=$DATABASE_PASSWORD"
-fi
-
-if [ -z "$BATCH_CRON" ]; then
-  echo 'Using default cron schedule'
-else
-  JAVA_OPTS="$JAVA_OPTS -Dbatch.cron=$BATCH_CRON"
 fi
 
 exec java $JAVA_OPTS \

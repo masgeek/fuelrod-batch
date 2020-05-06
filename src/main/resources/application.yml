@@ -8,13 +8,8 @@ spring:
     active: dev
   batch:
     job:
-      #      names: "processMessage"
-      enabled: false
+      names: "processMessage"
+      enabled: true
     initialize-schema: ALWAYS
   main:
     web-application-type: NONE
-
-
-#second, minute, hour, day of month, month, day(s) of week
-batch:
-  cron: "0 */10 * * * *"
