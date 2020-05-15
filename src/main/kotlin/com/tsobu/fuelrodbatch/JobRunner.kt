@@ -26,7 +26,7 @@ class JobRunner(
     private val logger = LoggerFactory.getLogger(JobRunner::class.java)
 
     //     @Scheduled(fixedRate = 5000, initialDelay = 2000)
-    @Scheduled(cron = "* */5 * * * *")
+    @Scheduled(cron = "* */5 7-23 * * *")
     fun findAndRunJob() {
 
         try {
