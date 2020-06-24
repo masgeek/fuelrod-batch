@@ -23,7 +23,7 @@ class SmsOutbox : BaseEntity() {
     @Column(name = "sms_text", columnDefinition = "TEXT")
     var smsText: String? = null
 
-    var networkCode: Int = 0
+    var networkCode: String? = null
     var characterCount: Int = 0
     var smsCount: Int = 0
     var retryCount: Int = 0
