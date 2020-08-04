@@ -46,6 +46,7 @@ constructor(val messageQueueRepository: MessageQueueRepository,
             )
 
             messageRequest.queue = false
+            messageRequest.campaignId = message.campaignId
             message.messageSent = true
 
             sendTextMessage(messageRequest = messageRequest, apiUser = apiUser, apiUserServices = apiUserServices)

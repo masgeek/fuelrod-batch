@@ -12,4 +12,5 @@ open class MessageRequest(
     var type: String = "longSMS"
     var queue = false
     var broadCastName: String? = "NA"
+    var campaignId: Long? = null
 }

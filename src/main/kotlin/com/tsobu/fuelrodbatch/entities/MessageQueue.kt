@@ -16,6 +16,9 @@ class MessageQueue : BaseEntity() {
     @Column(name = "message", columnDefinition = "TEXT")
     var message: String? = null
 
+    @Column(name = "campaign_id")
+    var campaignId: Long? = null
+
     var phoneNumber: String? = null
 
     @Column(name = "sms_count")
