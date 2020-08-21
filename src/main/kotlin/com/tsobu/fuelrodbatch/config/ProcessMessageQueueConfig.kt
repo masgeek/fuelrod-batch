@@ -47,8 +47,6 @@ class ProcessMessageQueueConfig {
                 .reader(reader)
                 .processor(messageQueueProcessor)
                 .faultTolerant()
-                //.skipLimit(10)
-                //.skip(ServiceIntegrationException::class.java)
                 .writer { }
                 .build()
     }

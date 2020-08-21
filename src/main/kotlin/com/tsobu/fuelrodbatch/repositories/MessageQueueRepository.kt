@@ -15,10 +15,4 @@ interface MessageQueueRepository : JpaRepository<MessageQueue, Long> {
     override fun findAll(): List<MessageQueue>
 
     fun findAllByMessageSentIsFalse(): List<MessageQueue>
-
-    fun findAllByMessageSentIsFalse(pageable: Pageable? = null): Page<MessageQueue> //used by batch job
-
-    fun findAllByUserIdAndMessageSentIsFalse(userId: Long): List<MessageQueue>
-
-    fun findAllByMessageSentIsTrue(): List<MessageQueue>
 }

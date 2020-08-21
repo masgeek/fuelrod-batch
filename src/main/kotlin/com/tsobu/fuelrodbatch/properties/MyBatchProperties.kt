@@ -9,9 +9,6 @@ import javax.validation.constraints.NotBlank
 
 @Data
 class MyBatchProperties {
-
     @NotBlank
     var cron: String? = null
-
-
 }

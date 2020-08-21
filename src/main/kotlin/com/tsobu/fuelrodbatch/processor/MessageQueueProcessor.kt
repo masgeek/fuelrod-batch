@@ -27,8 +27,6 @@ class MessageQueueProcessor(
      * @throws Exception thrown if exception occurs during processing.
      */
     override fun process(item: MessageQueue): MessageQueue? {
-        //val savedResponse = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(item)
-
         val apiUserServices = userService.getActiveService(item.userId!!)
         val apiUser = apiUserServices.apiUser
 
